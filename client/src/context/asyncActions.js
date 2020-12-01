@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 import ExpenseTracker from '../abis/ExpenseTracker.json';
-import { setupWeb3, setupContract } from './actions';
+import { setupWeb3, setupContract, setupAccount } from './actions';
 
 // For loading blockchain
 export const loadBlockchain = async (dispatch) => {
@@ -22,6 +22,11 @@ export const loadBlockchain = async (dispatch) => {
       const contract = new web3.eth.Contract(ExpenseTracker.abi, address);
       console.log(contract);
       dispatch(setupContract(contract));
+
+      // Loading Account
+      const accounts = await web3.eth.getAccounts();
+      console.log(accounts);
+      dispatch(setupAccount(accounts[0]));
     }
   } catch (error) {
     console.log('Error in loading Web3 >>> ', error);

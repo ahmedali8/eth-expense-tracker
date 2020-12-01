@@ -13,6 +13,12 @@ export default (state, action) => {
         contract: action.payload,
       };
 
+    case 'SETUP_ACCOUNT':
+      return {
+        ...state,
+        account: action.payload,
+      };
+
     default:
       return state;
   }
