@@ -4,6 +4,7 @@ import { loadBlockchain } from './asyncActions';
 
 // Initial state
 const initialState = {
+  isWeb3: false,
   web3: null,
   transactions: [],
   account: '',
@@ -17,6 +18,8 @@ export const GlobalContext = createContext(initialState);
 // Global provider
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  console.log(state);
 
   useEffect(() => {
     loadBlockchain(dispatch);

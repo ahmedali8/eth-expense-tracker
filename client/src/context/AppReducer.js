@@ -4,6 +4,7 @@ export default (state, action) => {
       return {
         ...state,
         web3: action.payload,
+        isWeb3: true,
         loading: false,
       };
 
@@ -17,6 +18,12 @@ export default (state, action) => {
       return {
         ...state,
         account: action.payload,
+      };
+
+    case 'ADD_TRANSACTION':
+      return {
+        ...state,
+        transactions: [action.payload, ...state.transactions],
       };
 
     default:

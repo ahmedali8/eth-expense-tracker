@@ -1,6 +1,11 @@
 import Web3 from 'web3';
 import ExpenseTracker from '../abis/ExpenseTracker.json';
-import { setupWeb3, setupContract, setupAccount } from './actions';
+import {
+  setupWeb3,
+  setupContract,
+  setupAccount,
+  addTransaction,
+} from './actions';
 
 // For loading blockchain
 export const loadBlockchain = async (dispatch) => {
@@ -27,6 +32,29 @@ export const loadBlockchain = async (dispatch) => {
       const accounts = await web3.eth.getAccounts();
       console.log(accounts);
       dispatch(setupAccount(accounts[0]));
+
+      // Loading Transactions
+      let transactionCount = await contract.methods.transactionCount().call();
+      console.log('transactionCount', transactionCount);
+
+      for (var i = 0; i < transactionCount; i++) {
+        const {
+          txOwner,
+          txDescription,
+          amount,
+        } = await contract.methods.transactions(i).call();
+
+        let txObj = {
+          txOwner,
+          txDescription,
+          amount: parseInt(amount),
+        };
+
+        console.log(txObj);
+        dispatch(addTransaction(txObj));
+      }
+    } else {
+      console.log('Please install Metamask or ethereum enabled browser!');
     }
   } catch (error) {
     console.log('Error in loading Web3 >>> ', error);

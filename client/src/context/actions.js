@@ -19,3 +19,10 @@ export const setupAccount = (account) => {
     payload: account,
   };
 };
+
+export const addTransaction = (txObj) => {
+  return {
+    type: 'ADD_TRANSACTION',
+    payload: txObj,
+  };
+};
