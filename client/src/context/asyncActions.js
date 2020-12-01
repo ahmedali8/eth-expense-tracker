@@ -85,9 +85,9 @@ export const addTransactionAsync = async (
 
   // sending the new transaction to blockchain
   const receipt = await contract.methods
-    .addTransaction(newTxObj.description, newTxObj.amount)
+    .addTransaction(newTxObj.txDescription, newTxObj.amount)
     .send({ from: account });
-
+  window.location.reload();
   console.log('after transaction >>>', receipt);
   dispatch(addTransaction(newTxObj));
   dispatch(setloading(false));
