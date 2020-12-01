@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default (state, action) => {
   switch (action.type) {
     case 'SET_LOADING':
@@ -29,6 +30,12 @@ export default (state, action) => {
       return {
         ...state,
         transactions: [action.payload, ...state.transactions],
+      };
+
+    case 'SET_BALANCE':
+      return {
+        ...state,
+        balance: action.payload,
       };
 
     default:

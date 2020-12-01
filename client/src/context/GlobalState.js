@@ -7,6 +7,7 @@ const initialState = {
   isWeb3: false,
   web3: null,
   transactions: [],
+  balance: 0,
   account: '',
   contract: {},
   loading: true,

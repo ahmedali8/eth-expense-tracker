@@ -6,6 +6,7 @@ import {
   setupContract,
   setupAccount,
   addTransaction,
+  setBalance,
 } from './actions';
 
 // For loading blockchain
@@ -54,6 +55,11 @@ export const loadBlockchain = async (dispatch) => {
         console.log(txObj);
         dispatch(addTransaction(txObj));
       }
+
+      // Loading Transaction balance
+      let balance = await contract.methods.balance().call();
+      console.log(balance);
+      dispatch(setBalance(balance));
 
       dispatch(setloading(false));
     } else {
