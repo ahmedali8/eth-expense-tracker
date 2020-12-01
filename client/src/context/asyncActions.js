@@ -64,3 +64,17 @@ export const loadBlockchain = async (dispatch) => {
     }
   }
 };
+
+export const addTransactionAsync = async (
+  contract,
+  account,
+  newTxObj,
+  dispatch
+) => {
+  console.log('before transaction');
+  const receipt = await contract.methods
+    .addTransaction(newTxObj.description, newTxObj.amount)
+    .send({ from: account });
+  console.log('after transaction >>>', receipt);
+  dispatch(addTransaction(newTxObj));
+};
