@@ -1,7 +1,8 @@
 import React from 'react';
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
-  return <div>Hello World</div>;
+  return <GlobalProvider>Hello World</GlobalProvider>;
 }
 
 export default App;
