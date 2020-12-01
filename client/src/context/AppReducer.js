@@ -1,11 +1,16 @@
 export default (state, action) => {
   switch (action.type) {
+    case 'SET_LOADING':
+      return {
+        ...state,
+        loading: action.payload,
+      };
+
     case 'SETUP_WEB3':
       return {
         ...state,
         web3: action.payload,
         isWeb3: true,
-        loading: false,
       };
 
     case 'SETUP_CONTRACT':

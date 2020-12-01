@@ -1,6 +1,7 @@
 import Web3 from 'web3';
 import ExpenseTracker from '../abis/ExpenseTracker.json';
 import {
+  setloading,
   setupWeb3,
   setupContract,
   setupAccount,
@@ -53,6 +54,8 @@ export const loadBlockchain = async (dispatch) => {
         console.log(txObj);
         dispatch(addTransaction(txObj));
       }
+
+      dispatch(setloading(false));
     } else {
       console.log('Please install Metamask or ethereum enabled browser!');
     }
@@ -72,9 +75,14 @@ export const addTransactionAsync = async (
   dispatch
 ) => {
   console.log('before transaction');
+  dispatch(setloading(true));
+
+  // sending the new transaction to blockchain
   const receipt = await contract.methods
     .addTransaction(newTxObj.description, newTxObj.amount)
     .send({ from: account });
+
   console.log('after transaction >>>', receipt);
   dispatch(addTransaction(newTxObj));
+  dispatch(setloading(false));
 };

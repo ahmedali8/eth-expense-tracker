@@ -1,4 +1,12 @@
 // Actions
+
+export const setloading = (boolean) => {
+  return {
+    type: 'SET_LOADING',
+    payload: boolean,
+  };
+};
+
 export const setupWeb3 = (web3) => {
   return {
     type: 'SETUP_WEB3',
