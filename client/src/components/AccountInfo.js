@@ -6,18 +6,18 @@ const AccountInfo = () => {
   const [accountBalance, setAccountBalance] = useState();
   const [networkType, setNetworkType] = useState();
 
-  console.log(account);
+  // console.log(account);
 
   useEffect(() => {
     (async () => {
       if (web3 && account) {
         let balance = await web3.eth.getBalance(account);
         balance = web3.utils.fromWei(balance, 'ether');
-        console.log(balance);
+        // console.log(balance);
         setAccountBalance(balance);
 
         let nType = await web3.eth.net.getNetworkType();
-        console.log(nType);
+        // console.log(nType);
         setNetworkType(nType);
       }
     })();

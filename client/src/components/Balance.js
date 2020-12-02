@@ -4,7 +4,7 @@ import { useStore } from '../context/GlobalState';
 
 const Balance = () => {
   const [{ balance }] = useStore();
-  console.log(balance);
+  // console.log(balance);
 
   return (
     <>
