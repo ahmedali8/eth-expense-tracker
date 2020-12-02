@@ -11,6 +11,7 @@
 
 # misc
 **.eslintcache
+**.secret
 *.DS_Store
 *.env.local
 *.env.development.local
