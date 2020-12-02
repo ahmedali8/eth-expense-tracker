@@ -25,7 +25,7 @@ const AccountInfo = () => {
   return (
     <>
       {web3 && account ? (
-        <>
+        <div className="account-info">
           <p>
             Account: <small>{account}</small>
           </p>
@@ -35,7 +35,7 @@ const AccountInfo = () => {
           <p>
             Network: <small>{networkType}</small>
           </p>
-        </>
+        </div>
       ) : (
         <div>Cannot load account info</div>
       )}

@@ -39,9 +39,9 @@ body {
     ),
     url(./bg-image.jpg);
   background-size: contain;
-  width: 350px;
+  width: 500px;
   height: auto;
-  padding: 0 15px;
+  padding: 20px;
   margin: 0;
 }
 
@@ -87,6 +87,15 @@ h5 {
   text-transform: uppercase;
   text-align: center;
   margin: 0 auto;
+}
+
+.account-info > * {
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.account-info > p > small {
+  color: #50b6f1;
 }
 
 .inc-exp-container {
