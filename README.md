@@ -1,14 +1,9 @@
-# eth-expense-tracker
-This is the ganache version of ethereum version of bootcamp project 1 i.e. expense tracker
+# Ethereum Expense Tracker
 
-> Note: Make sure ganache is running on port 7545
+This is the ethereum version of bootcamp project 1 i.e. expense tracker
 
-Commands to run in root and client:
-```
-npm install
-```
+> Note: It is deployed on rinkeby and ganache test network
 
-Command to run in client to get the app running on local machine:
-```
-npm start
-```
+### [Live Site](http://eth-expense-tracker-app.surge.sh/)
+
+[http://eth-expense-tracker-app.surge.sh/h](http://eth-expense-tracker-app.surge.sh/)
